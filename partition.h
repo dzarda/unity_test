@@ -16,3 +16,4 @@ partition_t NAME = { \
 
 status_code_t partition_read(const partition_t *part, uint32_t addr, unsigned char *dest, uint32_t bytes);
 status_code_t partition_write(const partition_t *part, uint32_t addr, unsigned char *src, uint32_t bytes);
+status_code_t partition_erase(const partition_t *part, uint32_t addr, uint32_t bytes);
