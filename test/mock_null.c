@@ -1,7 +1,10 @@
-#include "../flash_memory.h"
+//#include "../flash_memory.h"
 #include "status_codes.h"
+#include "mock_null.h"
+#include <stdint.h>
 
-status_code_t flash_read(const struct flash_mem *mem, uint32_t addr, char *dest, uint32_t bytes)
+
+status_code_t memory_read(const struct memory_device *mem, uint32_t addr, char *dest, uint32_t bytes)
 {
 	(void)mem;
 	(void)addr;
@@ -10,7 +13,7 @@ status_code_t flash_read(const struct flash_mem *mem, uint32_t addr, char *dest,
 	return STATUS_OK;
 }
 
-status_code_t flash_write(const struct flash_mem *mem, uint32_t addr, char *src, uint32_t bytes)
+status_code_t memory_write(const struct memory_device *mem, uint32_t addr, char *src, uint32_t bytes)
 {
 	(void)mem;
         (void)addr;
@@ -19,7 +22,7 @@ status_code_t flash_write(const struct flash_mem *mem, uint32_t addr, char *src,
 	return STATUS_OK;
 }
 
-status_code_t flash_erase(const struct flash_mem *mem, uint32_t addr, uint32_t bytes)
+status_code_t memory_erase(const struct memory_device *mem, uint32_t addr, uint32_t bytes)
 {
 	(void)mem;
 	(void)addr;
