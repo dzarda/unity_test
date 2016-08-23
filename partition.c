@@ -1,6 +1,10 @@
-#include "flash_memory.h"
 #include "partition.h"
+#include "memory_device.h"
 #include <stdlib.h>
+
+#ifndef MEMORY_DEVICE_DEFINED
+#error Please include a header that defines 'struct memory_device'
+#endif
 
 #define check_in_range(part, addr, bytes) \
 	if (addr + bytes > part->start + part->size) { \

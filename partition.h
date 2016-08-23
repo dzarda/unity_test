@@ -1,13 +1,9 @@
 #pragma once
 
-#include <stdint.h>
 #include "status_codes.h"
+#include "memory_device.h"
+#include <stdint.h>
 
-#ifndef MEMORY_DEVICE_DEFINED
-#error Please include a header that defines 'struct memory_device' (flash_memory.h)
-#endif
-
-// Defined in flash_memory.h
 struct partition {
 	struct memory_device *mem_dev;
 	uint32_t start;

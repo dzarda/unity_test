@@ -1,5 +1,6 @@
 #include "status_codes.h"
-#include "../flash_memory.h"
+//#include "../flash_memory.h"
+#include "mock_mapping.h"
 
 #include <stdint.h>
 #include <limits.h>
@@ -12,9 +13,9 @@ uint32_t used_bytes;
 
 void mock_setUp(void)
 {
-	used_mem = (struct memory_device*)0xDEADDEAD;
+	used_mem = (struct memory_device*)UINT_MAX;
 	used_addr = UINT_MAX;
-	used_ptr = (char*)0xDEADDEAD;
+	used_ptr = (char*)UINT_MAX;
 	used_bytes = UINT_MAX;
 }
 
