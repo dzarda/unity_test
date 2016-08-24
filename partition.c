@@ -20,14 +20,14 @@ status_code_t partition_read(const struct partition *part, uint32_t addr, char *
 {
 	check_args_valid(part, dest, bytes);
 	check_in_range(part, addr, bytes);
-	return memory_read(part->mem_dev, part->start, dest, bytes);
+	return memory_read(part->mem_dev, part->start + addr, dest, bytes);
 }
 
 status_code_t partition_write(const struct partition *part, uint32_t addr, char *src, uint32_t bytes)
 {
 	check_args_valid(part, src, bytes);
 	check_in_range(part, addr, bytes);
-	return memory_write(part->mem_dev, part->start, src, bytes);
+	return memory_write(part->mem_dev, part->start + addr, src, bytes);
 }
 
 status_code_t partition_erase(const struct partition *part, uint32_t addr, uint32_t bytes)
@@ -37,5 +37,5 @@ status_code_t partition_erase(const struct partition *part, uint32_t addr, uint3
 		return ERR_INVALID_ARG;
 	}
 	check_in_range(part, addr, bytes);
-	return memory_erase(part->mem_dev, addr, bytes);
+	return memory_erase(part->mem_dev, part->start + addr, bytes);
 }
